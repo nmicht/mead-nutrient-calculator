@@ -3,19 +3,22 @@ import './index.css';
 
 export default function Input(props) {
   return (
-    <div class="input-group">
+    <div className="input-group">
       <label htmlFor={props.id}>
         {props.label}
-      </label>
-      <span class="help-text">
+        <span className="help-text">
         {props.helpText}
-      </span>
+        </span>
+      </label>
       <input
-        id={props.id}
-        value={props.value}
-        placeholder={props.placeholder}
-        type={props.type}
-        required={props.required}
+      id={props.id}
+      name={props.name}
+      defaultValue={props.value}
+      defaultChecked={props.defaultChecked}
+      placeholder={props.placeholder}
+      type={props.type}
+      required={props.required}
+      onChange={props.onChange}
       />
     </div>
   );

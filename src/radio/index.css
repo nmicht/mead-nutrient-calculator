@@ -1,0 +1,23 @@
+.input-radio-group {
+  margin: 2em 0;
+}
+
+.input-radio-group .input-group {
+  flex-wrap: nowrap;
+}
+
+.input-radio-group .input-group input {
+  order: -1;
+}
+
+.input-radio-group .input-group input,
+.input-radio-group .input-group label {
+  flex: initial;
+}
+
+.input-radio-group .help-text {
+  color: grey;
+  display: block;
+  font-size: 0.8em;
+  font-style: italic;
+}

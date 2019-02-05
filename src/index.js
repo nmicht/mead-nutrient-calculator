@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Input from './input/';
+import Radio from './radio/';
 
-class MeadCalculator extends React.Component {
+class MeadNutrientCalculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +12,6 @@ class MeadCalculator extends React.Component {
           id: 'batchSizeUnit',
           label: 'Unit of Measure for Batch Size',
           value: 1,
-          helpText: 'Example: 1.115',
           type: 'radio',
           required: true,
           options: [
@@ -87,28 +87,47 @@ class MeadCalculator extends React.Component {
     };
   }
 
-  renderInput(i) {
-    return (
-      <Input
-        {...i}
-      />
-    );
+  handleChange(event) {
+    console.log(event.target.value);
+    // this.setState({value: event.target.value});
+  }
+
+  renderInput(item) {
+    if (item.type === 'radio' || item.type === 'checkbox') {
+      return (
+        <Radio
+          key={item.id}
+          {...item}
+          onChange={this.handleChange}
+        />
+      );
+    } else if (item.type === 'select') {
+      // return (
+      //   <Select
+      //     key={item.id}
+      //     {...item}
+      //     onChange={this.handleChange}
+      //   />
+      // );
+      return 'select';
+    } else {
+      return (
+        <Input
+          key={item.id}
+          {...item}
+          name={item.id}
+          onChange={this.handleChange}
+        />
+      );
+    }
   }
 
   render() {
-    const inputs = this.state.items.map((item) => {
-      if (item.type === 'radio' || item.type === 'checkbox') {
-        return 'radio/check';
-      } else if (item.type === 'select') {
-        return 'select';
-      } else {
-        return this.renderInput(item);
-      }
-    });
+    const inputs = this.state.items.map(item => this.renderInput(item));
 
     return (
       <div>
-        <h3>Mead Calculator</h3>
+        <h3>Mead Nutrient Calculator</h3>
         <form>
           {inputs}
           <button>
@@ -121,6 +140,6 @@ class MeadCalculator extends React.Component {
 }
 
 ReactDOM.render(
-  <MeadCalculator />,
+  <MeadNutrientCalculator />,
   document.getElementById('root')
 );
