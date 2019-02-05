@@ -13,7 +13,7 @@ export default function Input(props) {
       <input
       id={props.id}
       name={props.name}
-      defaultValue={props.value}
+      value={props.value}
       defaultChecked={props.defaultChecked}
       placeholder={props.placeholder}
       type={props.type}
