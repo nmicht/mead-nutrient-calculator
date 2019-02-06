@@ -11,7 +11,7 @@ export default function Radio(props) {
         name={props.id}
         type={props.type}
         defaultChecked={props.value === input.value}
-        onChange={props.onChange}
+        onChange={(e) => props.onChange(e)}
         required={props.required}
         placeholder={props.placeholder}
         value={input.value}

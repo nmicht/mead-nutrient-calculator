@@ -11,14 +11,14 @@ export default function Input(props) {
         </span>
       </label>
       <input
-      id={props.id}
-      name={props.name}
-      value={props.value}
-      defaultChecked={props.defaultChecked}
-      placeholder={props.placeholder}
-      type={props.type}
-      required={props.required}
-      onChange={props.onChange}
+        id={props.id}
+        name={props.name}
+        value={props.value}
+        defaultChecked={props.defaultChecked}
+        placeholder={props.placeholder}
+        type={props.type}
+        required={props.required ? 'required' : ''}
+        onChange={(e) => props.onChange(e)}
       />
     </div>
   );

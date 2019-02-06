@@ -7,7 +7,7 @@ export default function Select(props) {
       <option
         key={props.id + option.text}
         value={option.value}
-        onChange={props.onChange}
+        onChange={(e) => props.onChange(e)}
       >
         {option.text}
       </option>

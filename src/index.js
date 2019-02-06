@@ -17,6 +17,7 @@ class MeadNutrientCalculator extends React.Component {
             { text: 'gallons', value: 1 },
             { text: 'liters', value: 2 },
           ],
+          onChange: this.handleChange,
         },
         {
           id: 'nutrientPreference',
@@ -29,6 +30,7 @@ class MeadNutrientCalculator extends React.Component {
             { text: 'Fermaid-O', value: 50 },
             { text: 'Fermaid-K', value: 100 },
           ],
+          onChange: this.handleChange,
         },
         {
           id: 'batchSize',
@@ -37,6 +39,7 @@ class MeadNutrientCalculator extends React.Component {
           placeholder: 1,
           type: 'number',
           required: true,
+          onChange: this.handleChange,
         },
         {
           id: 'startingGravity',
@@ -46,6 +49,7 @@ class MeadNutrientCalculator extends React.Component {
           helpText: 'Example: 1.115',
           type: 'number',
           required: true,
+          onChange: this.handleChange,
         },
         {
           id: 'yeastSelection',
@@ -85,34 +89,51 @@ class MeadNutrientCalculator extends React.Component {
             {value: "1.25", text: "Other High N Requirement"},
             {value: "0.75", text: "Ale / Lager Yeast"},
           ],
+          onChange: this.handleChange,
         },
         {
           id: 'fruitSpecificGravity',
           label: 'Specific Gravity of Fruit',
-          value: 0,
+          value: undefined,
           placeholder: 0,
           helpText: 'Example: 1.035 (only if fermenting fruit in primary)',
           type: 'number',
           required: false,
+          onChange: this.handleChange,
         },
         {
           id: 'overrideYeastPitchRate',
           label: 'Override Yeast Pitch Rate',
-          value: 0,
+          value: undefined,
           helpText: 'Enter your preferred grams of yeast per gallon',
           type: 'range',
           required: false,
+          onChange: this.handleChange,
         },
         {
           id: 'metricYeastPitchRateOverride',
           label: 'Metric Yeast Pitch Rate Override',
-          value: 0,
+          value: undefined,
           helpText: 'Enter your preferred grams of yeast per liter',
           type: 'range',
           required: false,
+          onChange: this.handleChange,
         }
       ],
     };
+  }
+
+  handleChange = (event) => {
+    console.log('target: ', event.target);
+    const newState = this.state.items.slice();
+    console.log('newState:', newState);
+    const index = newState.findIndex((elem) => elem.id === event.target.id);
+    console.log('index: ', index);
+    newState[index].value = event.target.value;
+    this.setState({
+      items: newState,
+    });
+
   }
 
   render() {

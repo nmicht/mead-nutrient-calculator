@@ -5,10 +5,6 @@ import Select from '../select/';
 import './index.css';
 
 export default class Form extends React.Component {
-  handleChange(event) {
-    console.log(event.target.value);
-    // this.setState({value: event.target.value});
-  }
 
   renderInput(item) {
     if (item.type === 'radio' || item.type === 'checkbox') {
@@ -16,7 +12,7 @@ export default class Form extends React.Component {
         <Radio
           key={item.id}
           {...item}
-          onChange={this.handleChange}
+          onChange={(e) => item.onChange(e)}
         />
       );
     } else if (item.type === 'select') {
@@ -24,7 +20,7 @@ export default class Form extends React.Component {
         <Select
           key={item.id}
           {...item}
-          onChange={this.handleChange}
+          onChange={(e) => item.onChange(e)}
         />
       );
     } else {
@@ -33,7 +29,7 @@ export default class Form extends React.Component {
           key={item.id}
           {...item}
           name={item.id}
-          onChange={this.handleChange}
+          onChange={(e) => item.onChange(e)}
         />
       );
     }
