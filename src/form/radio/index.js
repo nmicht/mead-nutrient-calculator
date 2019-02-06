@@ -6,13 +6,16 @@ export default function Radio(props) {
   const inputs = props.options.map((input) => {
     return (
       <Input
-        label={input.text}
         key={props.id + input.value}
         id={props.id + input.value}
         name={props.id}
-        defaultChecked={input.value}
         type={props.type}
-        onChange={props.onChange}
+        defaultChecked={props.value === input.value}
+        onChange={(e) => props.onChange(e)}
+        required={props.required}
+        placeholder={props.placeholder}
+        value={input.value}
+        label={input.text}
       />
     )
   });
