@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from '../input/';
-import Radio from '../radio/';
-import Select from '../select/';
+import Input from './input/';
+import Radio from './radio/';
+import Select from './select/';
 import './index.css';
 
 export default class Form extends React.Component {

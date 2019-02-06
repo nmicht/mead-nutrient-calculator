@@ -19,6 +19,9 @@ export default function Input(props) {
         type={props.type}
         required={props.required ? 'required' : ''}
         onChange={(e) => props.onChange(e)}
+        max={props.max}
+        min={props.min}
+        step={props.step}
       />
     </div>
   );

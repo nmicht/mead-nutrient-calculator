@@ -35,7 +35,7 @@ class MeadNutrientCalculator extends React.Component {
         {
           id: 'batchSize',
           label: 'Batch Size',
-          value: undefined,
+          value: '',
           placeholder: 1,
           type: 'number',
           required: true,
@@ -44,10 +44,11 @@ class MeadNutrientCalculator extends React.Component {
         {
           id: 'startingGravity',
           label: 'Starting Gravity',
-          value: undefined,
+          value: '',
           placeholder: 1.100,
           helpText: 'Example: 1.115',
           type: 'number',
+          step: 0.001,
           required: true,
           onChange: this.handleChange,
         },
@@ -94,17 +95,21 @@ class MeadNutrientCalculator extends React.Component {
         {
           id: 'fruitSpecificGravity',
           label: 'Specific Gravity of Fruit',
-          value: undefined,
+          value: '',
           placeholder: 0,
           helpText: 'Example: 1.035 (only if fermenting fruit in primary)',
           type: 'number',
+          step: 0.001,
           required: false,
           onChange: this.handleChange,
         },
         {
           id: 'overrideYeastPitchRate',
           label: 'Override Yeast Pitch Rate',
-          value: undefined,
+          value: '',
+          min: 0,
+          max: 10,
+          step: 0.5,
           helpText: 'Enter your preferred grams of yeast per gallon',
           type: 'range',
           required: false,
@@ -113,9 +118,12 @@ class MeadNutrientCalculator extends React.Component {
         {
           id: 'metricYeastPitchRateOverride',
           label: 'Metric Yeast Pitch Rate Override',
-          value: undefined,
+          value: '',
           helpText: 'Enter your preferred grams of yeast per liter',
           type: 'range',
+          min: 0,
+          max: 3,
+          step: 0.25,
           required: false,
           onChange: this.handleChange,
         }
@@ -124,16 +132,12 @@ class MeadNutrientCalculator extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log('target: ', event.target);
     const newState = this.state.items.slice();
-    console.log('newState:', newState);
     const index = newState.findIndex((elem) => elem.id === event.target.id);
-    console.log('index: ', index);
     newState[index].value = event.target.value;
     this.setState({
       items: newState,
     });
-
   }
 
   render() {
