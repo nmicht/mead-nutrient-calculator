@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from './form/';
+import Results from './results/';
+import calc from './calc';
 
 class MeadNutrientCalculator extends React.Component {
   constructor(props) {
@@ -11,7 +13,7 @@ class MeadNutrientCalculator extends React.Component {
         nutrientPreference: 50,
         batchSize: '',
         startingGravity: '',
-        yeastSelection: 'Lalvin 71B',
+        yeastSelection: 0.75,
         fruitSpecificGravity: '',
         overrideYeastPitchRate: '',
         metricYeastPitchRateOverride: '',
@@ -148,18 +150,67 @@ class MeadNutrientCalculator extends React.Component {
         required: false,
         onChange: this.handleChange,
       }
-    ]};
+    ],
+      results: [
+        {
+          id: 'totalNutrientNeedGrams',
+          label: 'Total nutrient needed',
+          unit: 'grams',
+        },
+        {
+          id: 'goFermNeedGram',
+          label: 'Go-Ferm needed',
+          unit: 'grams',
+        },
+        {
+          id: 'goFermNeedOz',
+          label: 'Go-Ferm needed',
+          unit: 'oz',
+        },
+        {
+          id: 'goFermWaterNeedLt',
+          label: 'Water to dilute Go-Ferm',
+          unit: 'liters',
+        },
+        {
+          id: 'goFermWaterNeedMl',
+          label: 'Water to dilute Go-Ferm',
+          unit: 'ml',
+        },
+        {
+          id: 'yeastNeed',
+          label: 'Yeast needed',
+          unit: 'grams',
+        },
+        {
+          id: 'totalNutrientNeedOz',
+          label: 'Total nutrient needed',
+          unit: 'oz',
+        },
+      ],
+    };
   }
 
   handleChange = (event) => {
-    this.setState({inputs: {...this.state.inputs, [event.target.name]: event.target.value}});
+    this.setState({
+      inputs: {
+        ...this.state.inputs,
+        [event.target.name]: event.target.value,
+      },
+      results: {
+        ...this.state.results,
+        startingGravityBrix: calc.getStartingGravityBrix(this.state.inputs),
+        totalNutrientNeedGrams: calc.getTotalNutrientNeedGrams(this.state),
+      }
+    });
   }
 
   render() {
     return (
       <div>
         <h3>Mead Nutrient Calculator</h3>
-        <Form inputs={this.state.inputs} {...this.form} />
+        <Form inputs={this.state.inputs} fields={this.form.fields} />
+        <Results results={this.state.results} fields={this.form.results} />
       </div>
     );
   }

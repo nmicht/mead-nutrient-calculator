@@ -45,9 +45,6 @@ export default class Form extends React.Component {
       <div>
         <form>
           {inputs}
-          <button>
-            Submit
-          </button>
         </form>
       </div>
     );
