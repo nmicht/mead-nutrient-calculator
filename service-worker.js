@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mead-calculator/precache-manifest.c2700990c2227be7e906316f8fcd7969.js"
+  "/mead-calculator/precache-manifest.e335f0d1a6e788aae51f97e6ccff9f5f.js"
 );
 
 workbox.clientsClaim();
