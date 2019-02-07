@@ -33,8 +33,10 @@
     "url": "git+https://github.com/nmicht/mead-nutrient-calculator.git"
   },
   "keywords": [
-    "mead",
-    "calculator"
+    "mead-calculator",
+    "nutrient-calculator",
+    "calculator",
+    "mead"
   ],
   "author": "Michelle Torres <hola@michelletorres.mx> (https://michelletorres.mx)",
   "license": "MIT",
