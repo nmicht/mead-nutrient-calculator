@@ -195,15 +195,110 @@ class MeadNutrientCalculator extends React.Component {
 
     let data = {
       startingGravityBrix: this.startingGravityBrix,
-      yeastNutrientRequirement: this.yeastNutrientRequirement,
       batchSizeUnit,
       fruitSpecificGravity,
+      yeastNutrientRequirement: this.yeastNutrientRequirement,
       nutrientPreference,
       batchSize,
       fruitSugarPercentage,
     };
 
     return calc.getTotalNutrientNeedGrams(data);
+  }
+
+  get totalNutrientNeedOz() {
+    return calc.getTotalNutrientNeedOz(this.totalNutrientNeedGrams);
+  }
+
+  get yeastNeed() {
+    const {
+      batchSize,
+      startingGravity,
+      batchSizeUnit,
+      overrideYeastPitchRate,
+      metricYeastPitchRateOverride,
+    } = this.state;
+
+    let data = {
+      yeastPitchRate: this.yeastPitchRate,
+      recommendedYeastPitchRateLt: this.recommendedYeastPitchRateLt,
+      batchSize,
+      startingGravity,
+      batchSizeUnit,
+      overrideYeastPitchRate,
+      metricYeastPitchRateOverride,
+    }
+    return calc.getYeastNeed(data);
+  }
+
+  get goFermNeedOz() {
+    return calc.getGoFermNeedOz(this.yeastNeed);
+  }
+
+  get goFermWaterNeedLt() {
+    return calc.getGoFermWaterNeedLt(this.goFermNeedGram);
+  }
+
+  get goFermNeedGram() {
+    return calc.getGoFermNeedGram(this.yeastNeed);
+  }
+
+  get goFermWaterNeedMl() {
+    return calc.getGoFermWaterNeedMl(this.goFermNeedGram);
+  }
+
+  get nutrientStepGrams() {
+    return calc.getNutrientStepGrams(this.totalNutrientNeedGrams);
+  }
+
+  get getNutrientStepOz() {
+    return calc.getNutrientStepOz(this.totalNutrientNeedGrams);
+  }
+
+  get yeastPitchRate() {
+    const {
+      batchSize,
+      startingGravity,
+    } = this.state;
+
+    let data = {
+      batchSize,
+      startingGravity,
+    };
+
+    return calc.getYeastPitchRate(data);
+  }
+
+  get fruitSugarPercentage() {
+    const {
+      fruitSpecificGravity,
+      startingGravity,
+    } = this.state;
+
+    let data = {
+      fruitSpecificGravity,
+      startingGravity,
+    };
+
+    return calc.getFruitSugarPercentage(data);
+  }
+
+  get sugarBreak() {
+    return calc.getSugarBreak(this.state.startingGravity);
+  }
+
+  get recommendedYeastPitchRateLt() {
+    const {
+      batchSize,
+      startingGravity,
+    } = this.state;
+
+    let data = {
+      batchSize,
+      startingGravity,
+    };
+
+    return calc.getRecommendedYeastPitchRateLt(data);
   }
 
   handleChange = (event) => {
@@ -219,8 +314,14 @@ class MeadNutrientCalculator extends React.Component {
         <h3>Mead Nutrient Calculator</h3>
         <Form inputs={this.state} fields={this.form.fields} />
         <Results
-          totalNutrientNeedGrams={this.totalNutrientNeedGrams}
           fields={this.form.results}
+          totalNutrientNeedGrams={this.totalNutrientNeedGrams}
+          goFermNeedGram={this.goFermNeedGram}
+          goFermNeedOz={this.goFermNeedOz}
+          goFermWaterNeedLt={this.goFermWaterNeedLt}
+          goFermWaterNeedMl={this.goFermWaterNeedMl}
+          yeastNeed={this.yeastNeed}
+          totalNutrientNeedOz={this.totalNutrientNeedOz}
         />
       </div>
     );
