@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mead-nutrient-calculator/precache-manifest.d3981ae72e85113faf0e6b3f3e809b90.js"
+  "/mead-nutrient-calculator/precache-manifest.5d5a3f84a20506211bf47eafe8570179.js"
 );
 
 workbox.clientsClaim();
