@@ -138,24 +138,9 @@ class MeadNutrientCalculator extends React.Component {
     ],
       results: [
         {
-          id: 'totalNutrientNeedGrams',
-          label: 'Total nutrient needed',
-          unit: 'grams',
-        },
-        {
           id: 'goFermNeedGram',
           label: 'Go-Ferm needed',
           unit: 'grams',
-        },
-        {
-          id: 'goFermNeedOz',
-          label: 'Go-Ferm needed',
-          unit: 'oz',
-        },
-        {
-          id: 'goFermWaterNeedLt',
-          label: 'Water to dilute Go-Ferm',
-          unit: 'liters',
         },
         {
           id: 'goFermWaterNeedMl',
@@ -168,9 +153,54 @@ class MeadNutrientCalculator extends React.Component {
           unit: 'grams',
         },
         {
+          id: 'totalNutrientNeedGrams',
+          label: 'Total nutrient needed',
+          unit: 'grams',
+        },
+        {
+          id: 'nutrientStepGrams',
+          label: 'Each nutrient addition (4 total)',
+          unit: 'grams',
+        },
+        {
+          id: 'sugarBreak',
+          label: '1/3 Sugar Break',
+          unit: '',
+        },
+        {
+          id: 'startingGravityBrix',
+          label: 'Starting Gravity Converted to Brix',
+          unit: '',
+        },
+        {
+          id: 'fruitSugarPercentage',
+          label: 'Fruit Sugar Percentage',
+          unit: '',
+        },
+        {
+          id: 'goFermNeedOz',
+          label: 'Go-Ferm needed',
+          unit: 'oz',
+        },
+        {
+          id: 'goFermWaterNeedLt',
+          label: 'Water to dilute Go-Ferm',
+          unit: 'liters',
+        },
+        {
+          id: 'yeastNeed',
+          label: 'Yeast needed',
+          unit: 'grams',
+        },
+        {
           id: 'totalNutrientNeedOz',
           label: 'Total nutrient needed',
           unit: 'oz',
+        },
+        {
+          id: 'nutrientStepGrams',
+          label: 'Each nutrient addition (4 total)',
+          unit: 'grams',
         },
       ],
     };
@@ -322,6 +352,10 @@ class MeadNutrientCalculator extends React.Component {
           goFermWaterNeedMl={this.goFermWaterNeedMl}
           yeastNeed={this.yeastNeed}
           totalNutrientNeedOz={this.totalNutrientNeedOz}
+          startingGravityBrix={this.startingGravityBrix}
+          nutrientStepGrams={this.nutrientStepGrams}
+          sugarBreak={this.sugarBreak}
+          fruitSugarPercentage={this.fruitSugarPercentage}
         />
       </div>
     );
