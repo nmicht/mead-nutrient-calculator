@@ -13,26 +13,10 @@ class MeadNutrientCalculator extends React.Component {
         nutrientPreference: 50,
         batchSize: '',
         startingGravity: '',
-        yeastSelection: 0.75,
+        yeastSelection: 'L-71B',
         fruitSpecificGravity: '',
         overrideYeastPitchRate: '',
         metricYeastPitchRateOverride: '',
-      },
-      results: {
-        totalNutrientNeedGrams: 0,
-        goFermWaterNeedLt: 0,
-        goFermNeedOz: 0,
-        goFermNeedGram: 0,
-        goFermWaterNeedMl: 0,
-        yeastNeed: 0,
-        totalNutrientNeedOz: 0,
-        nutrientStepGrams: 0,
-        nutrientStepOz: 0,
-        yeastPitchRate: 0,
-        startingGravityBrix: 0,
-        fruitSugarPercentage: 0,
-        sugarBreak: 0,
-        recommendedYeastPitchRateLt: 0,
       }
     };
 
@@ -88,36 +72,36 @@ class MeadNutrientCalculator extends React.Component {
         type: 'select',
         required: true,
         options: [
-          {value: "0.75", text: "Lalvin 71B"},
-          {value: "1.25", text: "Lalvin BA 11"},
-          {value: "0.9", text: "Lalvin BM45"},
-          {value: "1.25", text: "Lalvin BM4X4"},
-          {value: "0.9", text: "Lalvin CLOS"},
-          {value: "1.25", text: "Lalvin CY3079"},
-          {value: "0.9", text: "Lalvin D21"},
-          {value: "0.9", text: "Lalvin D254"},
-          {value: "0.75", text: "Lalvin D47"},
-          {value: "0.9", text: "Lalvin D80"},
-          {value: "0.75", text: "Lalvin DV10"},
-          {value: "0.75", text: "Lalvin EC-1118"},
-          {value: "0.9", text: "Lalvin K1V-1116"},
-          {value: "0.75", text: "Lalvin QA23"},
-          {value: "0.9", text: "Lalvin R2"},
-          {value: "0.9", text: "Lalvin RC212"},
-          {value: "1.25", text: "Lalvin Rhone 2226"},
-          {value: "1.25", text: "Red Star Cote Des Blancs"},
-          {value: "0.75", text: "Red Star Montrachet"},
-          {value: "0.75", text: "Red Star Pasteur Champange"},
-          {value: "0.9", text: "Red Star Pasteur Red"},
-          {value: "0.9", text: "Red Star Premier Cuvee"},
-          {value: "0.75", text: "Uvaferm 43"},
-          {value: "0.9", text: "Uvaferm BDX"},
-          {value: "0.9", text: "Uvaferm SVG"},
-          {value: "0.9", text: "Uvaferm VRB"},
-          {value: "0.75", text: "Other Low N Requirement"},
-          {value: "0.9", text: "Other Medium N Requirement"},
-          {value: "1.25", text: "Other High N Requirement"},
-          {value: "0.75", text: "Ale / Lager Yeast"},
+          {value: "L-71B", text: "Lalvin 71B"},
+          {value: "L-BA-11", text: "Lalvin BA 11"},
+          {value: "L-BM45", text: "Lalvin BM45"},
+          {value: "L-BM4X4", text: "Lalvin BM4X4"},
+          {value: "L-CLOS", text: "Lalvin CLOS"},
+          {value: "L-CY3079", text: "Lalvin CY3079"},
+          {value: "L-D21", text: "Lalvin D21"},
+          {value: "L-D254", text: "Lalvin D254"},
+          {value: "L-D47", text: "Lalvin D47"},
+          {value: "L-D80", text: "Lalvin D80"},
+          {value: "L-DV10", text: "Lalvin DV10"},
+          {value: "L-EC-1118", text: "Lalvin EC-1118"},
+          {value: "L-K1V-1116", text: "Lalvin K1V-1116"},
+          {value: "L-QA23", text: "Lalvin QA23"},
+          {value: "L-R2", text: "Lalvin R2"},
+          {value: "L-RC212", text: "Lalvin RC212"},
+          {value: "L-2226", text: "Lalvin Rhone 2226"},
+          {value: "RS-Cote-D", text: "Red Star Cote Des Blancs"},
+          {value: "RS-Montrachet", text: "Red Star Montrachet"},
+          {value: "RS-Pasteur-C", text: "Red Star Pasteur Champange"},
+          {value: "RS-Pasteur-R", text: "Red Star Pasteur Red"},
+          {value: "RS-Premier-C", text: "Red Star Premier Cuvee"},
+          {value: "U-43", text: "Uvaferm 43"},
+          {value: "U-BDX", text: "Uvaferm BDX"},
+          {value: "U-SVG", text: "Uvaferm SVG"},
+          {value: "U-VRB", text: "Uvaferm VRB"},
+          {value: "O-LOW", text: "Other Low N Requirement"},
+          {value: "O-MED", text: "Other Medium N Requirement"},
+          {value: "0-HIGH", text: "Other High N Requirement"},
+          {value: "ALE", text: "Ale / Lager Yeast"},
         ],
         onChange: this.handleChange,
       },
@@ -194,16 +178,41 @@ class MeadNutrientCalculator extends React.Component {
     };
   }
 
+  get yeastNutrientRequirement() {
+    return calc.getYeastNutrientRequirement(this.state.inputs.yeastSelection)
+  }
+
+  get startingGravityBrix() {
+    return calc.getStartingGravityBrix(this.state.inputs.startingGravity);
+  }
+
+  get totalNutrientNeedGrams() {
+    const {
+      batchSizeUnit,
+      fruitSpecificGravity,
+      nutrientPreference,
+      batchSize,
+      fruitSugarPercentage,
+    } = this.state.inputs;
+
+    let data = {
+      startingGravityBrix: this.startingGravityBrix,
+      yeastNutrientRequirement: this.yeastNutrientRequirement,
+      batchSizeUnit,
+      fruitSpecificGravity,
+      nutrientPreference,
+      batchSize,
+      fruitSugarPercentage,
+    };
+
+    return calc.getTotalNutrientNeedGrams(data);
+  }
+
   handleChange = (event) => {
     this.setState({
       inputs: {
         ...this.state.inputs,
         [event.target.name]: event.target.value,
-      },
-      results: {
-        ...this.state.results,
-        startingGravityBrix: calc.getStartingGravityBrix(this.state.inputs),
-        totalNutrientNeedGrams: calc.getTotalNutrientNeedGrams(this.state),
       }
     });
   }
@@ -213,7 +222,10 @@ class MeadNutrientCalculator extends React.Component {
       <div>
         <h3>Mead Nutrient Calculator</h3>
         <Form inputs={this.state.inputs} fields={this.form.fields} />
-        <Results results={this.state.results} fields={this.form.results} />
+        <Results
+          totalNutrientNeedGrams={this.totalNutrientNeedGrams}
+          fields={this.form.results}
+        />
       </div>
     );
   }
