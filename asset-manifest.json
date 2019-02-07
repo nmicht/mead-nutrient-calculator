@@ -1,13 +1,13 @@
 {
-  "main.css": "/mead-calculator/static/css/main.240d96af.chunk.css",
-  "main.js": "/mead-calculator/static/js/main.cb0f82d8.chunk.js",
-  "main.js.map": "/mead-calculator/static/js/main.cb0f82d8.chunk.js.map",
-  "static/js/1.e97b805b.chunk.js": "/mead-calculator/static/js/1.e97b805b.chunk.js",
-  "static/js/1.e97b805b.chunk.js.map": "/mead-calculator/static/js/1.e97b805b.chunk.js.map",
-  "runtime~main.js": "/mead-calculator/static/js/runtime~main.61059daa.js",
-  "runtime~main.js.map": "/mead-calculator/static/js/runtime~main.61059daa.js.map",
-  "static/css/main.240d96af.chunk.css.map": "/mead-calculator/static/css/main.240d96af.chunk.css.map",
-  "index.html": "/mead-calculator/index.html",
-  "precache-manifest.e335f0d1a6e788aae51f97e6ccff9f5f.js": "/mead-calculator/precache-manifest.e335f0d1a6e788aae51f97e6ccff9f5f.js",
-  "service-worker.js": "/mead-calculator/service-worker.js"
+  "main.css": "/mead-nutrient-calculator/static/css/main.240d96af.chunk.css",
+  "main.js": "/mead-nutrient-calculator/static/js/main.cb0f82d8.chunk.js",
+  "main.js.map": "/mead-nutrient-calculator/static/js/main.cb0f82d8.chunk.js.map",
+  "static/js/1.e97b805b.chunk.js": "/mead-nutrient-calculator/static/js/1.e97b805b.chunk.js",
+  "static/js/1.e97b805b.chunk.js.map": "/mead-nutrient-calculator/static/js/1.e97b805b.chunk.js.map",
+  "runtime~main.js": "/mead-nutrient-calculator/static/js/runtime~main.485d5ff4.js",
+  "runtime~main.js.map": "/mead-nutrient-calculator/static/js/runtime~main.485d5ff4.js.map",
+  "static/css/main.240d96af.chunk.css.map": "/mead-nutrient-calculator/static/css/main.240d96af.chunk.css.map",
+  "index.html": "/mead-nutrient-calculator/index.html",
+  "precache-manifest.d3981ae72e85113faf0e6b3f3e809b90.js": "/mead-nutrient-calculator/precache-manifest.d3981ae72e85113faf0e6b3f3e809b90.js",
+  "service-worker.js": "/mead-nutrient-calculator/service-worker.js"
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/mead-calculator/precache-manifest.e335f0d1a6e788aae51f97e6ccff9f5f.js"
+  "/mead-nutrient-calculator/precache-manifest.d3981ae72e85113faf0e6b3f3e809b90.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/mead-calculator/index.html", {
+workbox.routing.registerNavigationRoute("/mead-nutrient-calculator/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
