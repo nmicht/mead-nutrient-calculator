@@ -1,7 +1,6 @@
 .select-group {
   display: flex;
   flex-wrap: wrap;
-  margin: 2em 0;
 }
 
 .select-group * {
