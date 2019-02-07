@@ -30,7 +30,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nmicht/mead-calculator.git"
+    "url": "git+https://github.com/nmicht/mead-nutrient-calculator.git"
   },
   "keywords": [
     "mead",
@@ -39,7 +39,7 @@
   "author": "Michelle Torres <hola@michelletorres.mx> (https://michelletorres.mx)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nmicht/mead-calculator/issues"
+    "url": "https://github.com/nmicht/mead-nutrient-calculator/issues"
   },
-  "homepage": "https://nmicht.github.io/mead-calculator/"
+  "homepage": "https://nmicht.github.io/mead-nutrient-calculator/"
 }
