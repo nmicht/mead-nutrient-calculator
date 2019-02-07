@@ -24,7 +24,7 @@ export default function Select(props) {
       </span>
       <select
         id={props.id}
-        name={props.name}
+        name={props.id}
         value={props.value}
         required={props.required}
         onChange={props.onChange}

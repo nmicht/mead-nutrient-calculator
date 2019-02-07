@@ -13,8 +13,9 @@
 }
 
 .input-radio-group .input-group input {
-  order: -1;
   height: auto;
+  margin: auto 0.5em;
+  order: -1;
 }
 
 .input-radio-group .input-group input,
