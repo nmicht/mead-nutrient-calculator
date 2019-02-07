@@ -18,10 +18,10 @@ export default function Select(props) {
     <div className="select-group">
       <label htmlFor={props.id}>
         {props.label}
-        <span className="help-text">
-        {props.helpText}
-        </span>
       </label>
+      <span className="help-text">
+      {props.helpText}
+      </span>
       <select
         id={props.id}
         name={props.name}

@@ -49,7 +49,7 @@ class MeadNutrientCalculator extends React.Component {
         id: 'batchSize',
         label: 'Batch Size',
         helpText: 'How big or small is your batch.',
-        placeholder: 1,
+        placeholder: "Example: 1",
         type: 'number',
         required: true,
         onChange: this.handleChange,
@@ -57,7 +57,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'startingGravity',
         label: 'Starting Gravity',
-        placeholder: 1.100,
+        placeholder: "Example: 1.115",
         helpText: 'Example: 1.115',
         type: 'number',
         step: 0.001,
@@ -107,7 +107,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'fruitSpecificGravity',
         label: 'Specific Gravity of Fruit',
-        placeholder: 0,
+        placeholder: "Example: 1.035",
         helpText: 'Example: 1.035 (only if fermenting fruit in primary)',
         type: 'number',
         step: 0.001,
@@ -165,7 +165,7 @@ class MeadNutrientCalculator extends React.Component {
             unit: 'grams',
           },
         ],
-        suplemental: [
+        supplemental: [
           {
             id: 'sugarBreak',
             label: '1/3 Sugar Break',
@@ -348,34 +348,38 @@ class MeadNutrientCalculator extends React.Component {
   render() {
     return (
       <div>
-        <h1>Mead Nutrient Calculator</h1>
-        <p className="title">Enter your data</p>
-        <Form inputs={this.state} fields={this.form.fields} />
-        <p className="title">The breakdown</p>
-        <Results
-          fields={this.form.results.main}
-          goFermWaterNeedMl={this.goFermWaterNeedMl}
-          goFermNeedGram={this.goFermNeedGram}
-          yeastNeed={this.yeastNeed}
-          totalNutrientNeedGrams={this.totalNutrientNeedGrams}
-          nutrientStepGrams={this.nutrientStepGrams}
-        />
-        <p className="title">Suplemental data</p>
-        <Results
-          fields={this.form.results.suplemental}
-          startingGravityBrix={this.startingGravityBrix}
-          sugarBreak={this.sugarBreak}
-          fruitSugarPercentage={this.fruitSugarPercentage}
-        />
-        <p className="title">Commercial units</p>
-        <Results
-          fields={this.form.results.other}
-          goFermNeedOz={this.goFermNeedOz}
-          yeastNeed={this.yeastNeed}
-          goFermWaterNeedLt={this.goFermWaterNeedLt}
-          totalNutrientNeedOz={this.totalNutrientNeedOz}
-          nutrientStepGrams={this.nutrientStepGrams}
-        />
+        <header>
+          <h1>Mead Nutrient Calculator</h1>
+        </header>
+        <main>
+          <p className="title">Enter your data</p>
+          <Form inputs={this.state} fields={this.form.fields} />
+          <p className="title">The breakdown</p>
+          <Results
+            fields={this.form.results.main}
+            goFermWaterNeedMl={this.goFermWaterNeedMl}
+            goFermNeedGram={this.goFermNeedGram}
+            yeastNeed={this.yeastNeed}
+            totalNutrientNeedGrams={this.totalNutrientNeedGrams}
+            nutrientStepGrams={this.nutrientStepGrams}
+          />
+          <p className="title">Supplemental data</p>
+          <Results
+            fields={this.form.results.supplemental}
+            startingGravityBrix={this.startingGravityBrix}
+            sugarBreak={this.sugarBreak}
+            fruitSugarPercentage={this.fruitSugarPercentage}
+          />
+          <p className="title">Commercial Scale Dosage Rates</p>
+          <Results
+            fields={this.form.results.other}
+            goFermNeedOz={this.goFermNeedOz}
+            yeastNeed={this.yeastNeed}
+            goFermWaterNeedLt={this.goFermWaterNeedLt}
+            totalNutrientNeedOz={this.totalNutrientNeedOz}
+            nutrientStepGrams={this.nutrientStepGrams}
+          />
+        </main>
       </div>
     );
   }

@@ -18,7 +18,7 @@ export default class Results extends React.Component {
     const outputs = this.props.fields.map(item => this.renderOutput(item, this.props[item.id]));
 
     return (
-      <div>
+      <div className="outputs">
         {outputs}
       </div>
     );
