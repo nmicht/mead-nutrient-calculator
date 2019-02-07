@@ -1,7 +1,6 @@
 .input-group {
   display: flex;
   flex-wrap: wrap;
-  margin: 2em 0;
 }
 
 .input-group * {
@@ -14,12 +13,38 @@
 
 .input-group input {
   flex: 1 1 100%;
-  padding: 0.3em 0 0.3em 0.3em;
+  padding: 0.5em 0 0.5em 0.5em;
+  border-radius: 0.3em;
+  height: 2.5em;
 }
 
 .input-group .help-text {
   color: grey;
   display: block;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.input-group ::-moz-placeholder {
+  color: grey;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.input-group ::-webkit-input-placeholder {
+  color: grey;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.input-group ::-ms-input-placeholder {
+  color: grey;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.input-group ::-ms-placeholder {
+  color: grey;
   font-size: 0.8em;
   font-style: italic;
 }
