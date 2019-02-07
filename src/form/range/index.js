@@ -6,10 +6,10 @@ export default function Range(props) {
     <div className="range-group">
       <label htmlFor={props.id}>
         {props.label}
-        <span className="help-text">
-        {props.helpText}
-        </span>
       </label>
+      <span className="help-text">
+      {props.helpText}
+      </span>
       <div>
         <span className="label-min">
           {props.min}

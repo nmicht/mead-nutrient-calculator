@@ -54,7 +54,7 @@ export default class Form extends React.Component {
 
     return (
       <div>
-        <form>
+        <form className={this.props.className}>
           {inputs}
         </form>
       </div>

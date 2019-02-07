@@ -7,6 +7,14 @@ form {
 
 form > div {
   box-sizing: border-box;
-  flex: 1 0 calc(50% - 2em*2);
+  flex: 1 0 calc(100% - 2em*2);
   margin: 2em 2em;
+}
+
+@media (min-device-width: 768px) {
+  form.two-columns > div {
+    box-sizing: border-box;
+    flex: 1 0 calc(50% - 2em*2);
+    margin: 2em 2em;
+  }
 }

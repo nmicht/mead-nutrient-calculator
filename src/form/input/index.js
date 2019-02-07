@@ -6,10 +6,10 @@ export default function Input(props) {
     <div className="input-group">
       <label htmlFor={props.id}>
         {props.label}
-        <span className="help-text">
-        {props.helpText}
-        </span>
       </label>
+      <span className="help-text">
+      {props.helpText}
+      </span>
       <input
         id={props.id}
         name={props.name}
