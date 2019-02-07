@@ -5,9 +5,18 @@ import Results from './results/';
 import calc from './calc';
 import './index.css';
 
+/**
+ * The main class for the mead nutrient calculator
+ * @extends React
+ * @class MeadNutrientCalculator
+ */
 class MeadNutrientCalculator extends React.Component {
   constructor(props) {
     super(props);
+    /**
+     * On the state we keep only the data introduced by the user
+     * @type {Object}
+     */
     this.state = {
       batchSizeUnit: 1,
       nutrientPreference: 50,
@@ -19,6 +28,24 @@ class MeadNutrientCalculator extends React.Component {
       metricYeastPitchRateOverride: 0,
     };
 
+    /**
+     * The form get the details for all the interactive elements in the input
+     * Each block of the form get a property, and for each of this, get an array
+     * of input objects
+     *
+     * FieldObject description:
+     *  {string} id         The identifier for the form input
+     *  {string} label      The label that should be used on the form
+     *  {string} helpText   Some help text that can be included below the label
+     *  {string} type       The type of html form interactive element
+     *  {boolean} required  Indicate if the field is required or not
+     *  {Array} options     A list of objects keeping the text and value for options
+     *  used on radio, checkbox and selects.
+     *  {function} onChange The function that will handle the change event on
+     *  the component .
+     *
+     * @type {Object}
+     */
     this.form = {
       fieldsPart1: [
         {

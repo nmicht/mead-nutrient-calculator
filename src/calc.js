@@ -33,10 +33,20 @@ const YEAST_SELECTION = {
   "ALE": 0.75,
 }
 
+/**
+ * Get Yeast Nutrient Requirement
+ * @param  {string} yeastSelection The yeast identifier
+ * @return {number}               The nutrient requirement for the specific yeast
+ */
 function getYeastNutrientRequirement(yeastSelection) {
   return YEAST_SELECTION[yeastSelection] || 0;
 }
 
+/**
+ * Get Starting Gravity Brix
+ * @param  {number} startingGravity The starting gravity
+ * @return {number}                 The gravity brix
+ */
 function getStartingGravityBrix(startingGravity) {
   let startingGravityBrix = 0;
   if(startingGravity < 1) {
@@ -47,6 +57,17 @@ function getStartingGravityBrix(startingGravity) {
   return startingGravityBrix || 0;
 }
 
+/**
+ * Get Total Nutrient Need Grams
+ * @param  {number} startingGravityBrix      [description]
+ * @param  {number} batchSizeUnit            [description]
+ * @param  {number} fruitSpecificGravity     [description]
+ * @param  {number} yeastNutrientRequirement [description]
+ * @param  {number} nutrientPreference       [description]
+ * @param  {number} batchSize                [description]
+ * @param  {number} fruitSugarPercentage     [description]
+ * @return {number}                          [description]
+ */
 function getTotalNutrientNeedGrams({
   startingGravityBrix,
   batchSizeUnit,
@@ -75,10 +96,26 @@ function getTotalNutrientNeedGrams({
   return totalNutrientNeedGrams || 0;
 }
 
+/**
+ * Get Total Nutrient Need Oz
+ * @param  {number} totalNutrientNeedGrams [description]
+ * @return {number}                        [description]
+ */
 function getTotalNutrientNeedOz(totalNutrientNeedGrams) {
   return totalNutrientNeedGrams * 0.0352739619;
 }
 
+/**
+ * Get Yeast Need
+ * @param  {number} batchSize                    [description]
+ * @param  {number} startingGravity              [description]
+ * @param  {number} batchSizeUnit                [description]
+ * @param  {number} overrideYeastPitchRate       [description]
+ * @param  {number} yeastPitchRate               [description]
+ * @param  {number} metricYeastPitchRateOverride [description]
+ * @param  {number} recommendedYeastPitchRateLt  [description]
+ * @return {number}                              [description]
+ */
 function getYeastNeed({
   batchSize,
   startingGravity,
@@ -114,33 +151,69 @@ function getYeastNeed({
   return yeastNeed;
 }
 
+/**
+ * Get Go Ferm Need Oz
+ * @param  {number} yeastNeed [description]
+ * @return {number}           [description]
+ */
 function getGoFermNeedOz(yeastNeed) {
   return (yeastNeed * 1.25) * 0.0352739619;
 }
 
+/**
+ * Get Go Ferm Water Need Lt
+ * @param  {number} goFermNeedGram [description]
+ * @return {number}                [description]
+ */
 function getGoFermWaterNeedLt(goFermNeedGram) {
   return goFermNeedGram * 0.02;
 }
 
+/**
+ * Get Go Ferm Need Gram
+ * @param  {number} yeastNeed [description]
+ * @return {number}           [description]
+ */
 function getGoFermNeedGram(yeastNeed) {
   return yeastNeed * 1.25;
 }
 
+/**
+ * Get Go Ferm Water Need Ml
+ * @param  {number} goFermNeedGram [description]
+ * @return {number}                [description]
+ */
 function getGoFermWaterNeedMl(goFermNeedGram) {
   return goFermNeedGram * 20;
 }
 
+/**
+ * Get Nutrient Step Grams
+ * @param  {number} totalNutrientNeedGrams [description]
+ * @return {number}                        [description]
+ */
 function getNutrientStepGrams(totalNutrientNeedGrams) {
   return totalNutrientNeedGrams / 4;
 }
 
+/**
+ * Get Nutrient Step Oz
+ * @param  {number} totalNutrientNeedGrams [description]
+ * @return {number}                        [description]
+ */
 function getNutrientStepOz(totalNutrientNeedGrams) {
   return (totalNutrientNeedGrams / 4) * 0.0352739619;
 }
 
+/**
+ * Get Yeast Pitch Rate
+ * @param  {number} batchSize       [description]
+ * @param  {number} startingGravity [description]
+ * @return {number}                 [description]
+ */
 function getYeastPitchRate({
   batchSize,
-  startingGravity,
+  startingGravity
 }) {
   let yeastPitchRate = 0;
 
@@ -165,9 +238,15 @@ function getYeastPitchRate({
   return yeastPitchRate;
 }
 
+/**
+ * Get Fruit Sugar Percentage
+ * @param  {number} fruitSpecificGravity [description]
+ * @param  {number} startingGravity      [description]
+ * @return {number}                      [description]
+ */
 function getFruitSugarPercentage({
   fruitSpecificGravity,
-  startingGravity,
+  startingGravity
 }) {
   let fruitSugarPercentage = 0;
 
@@ -180,6 +259,11 @@ function getFruitSugarPercentage({
   return fruitSugarPercentage;
 }
 
+/**
+ * Get Sugar Break
+ * @param  {number} startingGravity [description]
+ * @return {number}                 [description]
+ */
 function getSugarBreak(startingGravity) {
   let sugarBreak = 0;
 
@@ -196,6 +280,12 @@ function getSugarBreak(startingGravity) {
   return sugarBreak;
 }
 
+/**
+ * Get Recommended Yeast Pitch Rate Lt
+ * @param  {number} batchSize       [description]
+ * @param  {number} startingGravity [description]
+ * @return {number}                 [description]
+ */
 function getRecommendedYeastPitchRateLt({
   batchSize,
   startingGravity
@@ -223,6 +313,10 @@ function getRecommendedYeastPitchRateLt({
   return recommendedYeastPitchRateLt;
 }
 
+/**
+ * The module for the mead nutrient calculations.
+ * @module calc
+ */
 export default {
   getStartingGravityBrix,
   getTotalNutrientNeedGrams,
