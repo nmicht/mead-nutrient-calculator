@@ -1,8 +1,12 @@
 form {
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
 }
 
 form > div {
-  flex: 1 1 50%;
+  box-sizing: border-box;
+  flex: 1 0 calc(50% - 2em*2);
+  margin: 2em 2em;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from './input/';
 import Radio from './radio/';
+import Range from './range/';
 import Select from './select/';
 import './index.css';
 
@@ -13,6 +14,16 @@ export default class Form extends React.Component {
           key={item.id}
           {...item}
           value={value}
+          onChange={(e) => item.onChange(e)}
+        />
+      );
+    } else if (item.type === 'range') {
+      return (
+        <Range
+          key={item.id}
+          {...item}
+          value={value}
+          name={item.id}
           onChange={(e) => item.onChange(e)}
         />
       );

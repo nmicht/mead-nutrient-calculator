@@ -41,6 +41,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'batchSizeUnit',
         label: 'Unit of Measure for Batch Size',
+        helpText: 'The unit you are using for your batch size.',
         type: 'radio',
         required: true,
         options: [
@@ -52,7 +53,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'nutrientPreference',
         label: 'Nutrient Preference',
-        helpText: 'Example: 1.115',
+        helpText: 'Fermaid-O provides organic form of nitrogen, while Fermaid-K provides inorganic forms of nitrogen.',
         type: 'radio',
         required: true,
         options: [
@@ -64,6 +65,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'batchSize',
         label: 'Batch Size',
+        helpText: 'How big or small is your batch.',
         placeholder: 1,
         type: 'number',
         required: true,
@@ -82,6 +84,7 @@ class MeadNutrientCalculator extends React.Component {
       {
         id: 'yeastSelection',
         label: 'Yeast Selection',
+        helpText: 'Each yeast provides a different requirement of nutrient.',
         type: 'select',
         required: true,
         options: [
