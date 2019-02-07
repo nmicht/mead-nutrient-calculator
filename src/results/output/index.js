@@ -11,7 +11,7 @@ export default function Output(props) {
         </span>
       </label>
       <output name={props.id}>
-        {props.value} {props.unit}
+        {props.value.toFixed(2)} {props.unit}
       </output>
     </div>
   );
