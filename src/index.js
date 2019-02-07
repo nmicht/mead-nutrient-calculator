@@ -8,16 +8,14 @@ class MeadNutrientCalculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputs: {
-        batchSizeUnit: 1,
-        nutrientPreference: 50,
-        batchSize: '',
-        startingGravity: '',
-        yeastSelection: 'L-71B',
-        fruitSpecificGravity: '',
-        overrideYeastPitchRate: '',
-        metricYeastPitchRateOverride: '',
-      }
+      batchSizeUnit: 1,
+      nutrientPreference: 50,
+      batchSize: '',
+      startingGravity: '',
+      yeastSelection: 'L-71B',
+      fruitSpecificGravity: '',
+      overrideYeastPitchRate: '',
+      metricYeastPitchRateOverride: '',
     };
 
     this.form = {
@@ -179,11 +177,11 @@ class MeadNutrientCalculator extends React.Component {
   }
 
   get yeastNutrientRequirement() {
-    return calc.getYeastNutrientRequirement(this.state.inputs.yeastSelection)
+    return calc.getYeastNutrientRequirement(this.state.yeastSelection)
   }
 
   get startingGravityBrix() {
-    return calc.getStartingGravityBrix(this.state.inputs.startingGravity);
+    return calc.getStartingGravityBrix(this.state.startingGravity);
   }
 
   get totalNutrientNeedGrams() {
@@ -193,7 +191,7 @@ class MeadNutrientCalculator extends React.Component {
       nutrientPreference,
       batchSize,
       fruitSugarPercentage,
-    } = this.state.inputs;
+    } = this.state;
 
     let data = {
       startingGravityBrix: this.startingGravityBrix,
@@ -210,10 +208,8 @@ class MeadNutrientCalculator extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      inputs: {
-        ...this.state.inputs,
-        [event.target.name]: event.target.value,
-      }
+      ...this.state,
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -221,7 +217,7 @@ class MeadNutrientCalculator extends React.Component {
     return (
       <div>
         <h3>Mead Nutrient Calculator</h3>
-        <Form inputs={this.state.inputs} fields={this.form.fields} />
+        <Form inputs={this.state} fields={this.form.fields} />
         <Results
           totalNutrientNeedGrams={this.totalNutrientNeedGrams}
           fields={this.form.results}
