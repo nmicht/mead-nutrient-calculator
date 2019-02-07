@@ -77,11 +77,30 @@
 
 .range-group input[type=range]::-webkit-slider-thumb {
 	-webkit-appearance: none;
-	width: 50px;
-	height: 50px;
-	border: 2px solid #A7A7A7;
-	border-radius: 25px;
-	background: #FFE014;
+	width: 1.2em;
+	height: 1.2em;
+	border: solid 1px #999;
+	border-radius: 50%;
+	background: #f0f0f0;
+  margin-top: -0.4em;
+}
+
+.range-group input[type=range]::-moz-range-thumb {
+	-webkit-appearance: none;
+	width: 1.2em;
+	height: 1.2em;
+	border: solid 1px #999;
+	border-radius: 50%;
+	background: #f0f0f0;
+}
+
+.range-group input[type=range]::-ms-thumb {
+	-webkit-appearance: none;
+	width: 1.2em;
+	height: 1.2em;
+	border: solid 1px #999;
+	border-radius: 50%;
+	background: #f0f0f0;
 }
 
 .range-group .count3 {
