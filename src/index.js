@@ -353,32 +353,48 @@ class MeadNutrientCalculator extends React.Component {
         </header>
         <main>
           <p className="title">Enter your data</p>
-          <Form inputs={this.state} fields={this.form.fields} />
+          <Form inputs={this.state} fields={this.form.fields} className="two-columns"/>
           <p className="title">The breakdown</p>
-          <Results
-            fields={this.form.results.main}
-            goFermWaterNeedMl={this.goFermWaterNeedMl}
-            goFermNeedGram={this.goFermNeedGram}
-            yeastNeed={this.yeastNeed}
-            totalNutrientNeedGrams={this.totalNutrientNeedGrams}
-            nutrientStepGrams={this.nutrientStepGrams}
-          />
+          <div className="results">
+            <Results
+              fields={this.form.results.main}
+              goFermWaterNeedMl={this.goFermWaterNeedMl}
+              goFermNeedGram={this.goFermNeedGram}
+              yeastNeed={this.yeastNeed}
+              totalNutrientNeedGrams={this.totalNutrientNeedGrams}
+              nutrientStepGrams={this.nutrientStepGrams}
+            />
+            <div className="helpText">
+              <p><strong>NUTRIENT ADDITION SCHEDULE</strong></p>
+              <p>Add each nutrient addition at 24, 48 & 72-hours after yeast pitch.</p>
+              <p>The fourth nutrient addition is added at the 1/3 sugar break listed below, or Day 7. Whichever comes first.</p>
+            </div>
+          </div>
           <p className="title">Supplemental data</p>
-          <Results
-            fields={this.form.results.supplemental}
-            startingGravityBrix={this.startingGravityBrix}
-            sugarBreak={this.sugarBreak}
-            fruitSugarPercentage={this.fruitSugarPercentage}
-          />
+          <div className="results">
+            <Results
+              fields={this.form.results.supplemental}
+              startingGravityBrix={this.startingGravityBrix}
+              sugarBreak={this.sugarBreak}
+              fruitSugarPercentage={this.fruitSugarPercentage}
+            />
+          </div>
           <p className="title">Commercial Scale Dosage Rates</p>
-          <Results
-            fields={this.form.results.other}
-            goFermNeedOz={this.goFermNeedOz}
-            yeastNeed={this.yeastNeed}
-            goFermWaterNeedLt={this.goFermWaterNeedLt}
-            totalNutrientNeedOz={this.totalNutrientNeedOz}
-            nutrientStepGrams={this.nutrientStepGrams}
-          />
+          <div className="results">
+            <Results
+              fields={this.form.results.other}
+              goFermNeedOz={this.goFermNeedOz}
+              yeastNeed={this.yeastNeed}
+              goFermWaterNeedLt={this.goFermWaterNeedLt}
+              totalNutrientNeedOz={this.totalNutrientNeedOz}
+              nutrientStepGrams={this.nutrientStepGrams}
+            />
+            <div className="helpText">
+              <p><strong>NUTRIENT ADDITION SCHEDULE</strong></p>
+              <p>Add each nutrient addition at 24, 48 & 72-hours after yeast pitch.</p>
+              <p>The fourth nutrient addition is added at the 1/3 sugar break listed above, or Day 7. Whichever comes first.</p>
+            </div>
+          </div>
         </main>
       </div>
     );

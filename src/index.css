@@ -28,13 +28,18 @@ header {
   color: #D39C47;
 }
 
-.outputs {
+.results {
   background-color: #FFDBA3;
   margin: 2em 0;
 }
 
 .outputs output {
   color: #840C26;
+}
+
+.results .helpText {
+  padding: 2em 2em;
+  font-size: 0.8em;
 }
 
 .input-group input,
